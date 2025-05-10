@@ -29,25 +29,25 @@ Diseñada para ofrecer una experiencia moderna, rápida y responsive al usuario 
 
 ## 🏗️ Estrucutra del proyecto 
 
-/src
-├── /app
-│   ├── /home
-│   │   └── page.jsx
-│   ├── /productos
-│   │   ├── page.jsx
-│   ├── /carrito
-│   │   └── page.jsx
-│   ├── /checkout
-│   │   └── page.jsx
-│   ├── layout.jsx         # Layout principal (Navbar, Footer, etc)
-│   └── globals.css        # Si estás usando Tailwind CSS
-├── /components
-│   ├── /common            # Navbar, Footer, Header, Loader, etc.
-│   └── /ui                # Botones, cards, inputs reutilizables
-├── /lib                   # Funciones o hooks personalizados (fetch, utils, etc.)
-├── /styles                # Archivos CSS/SCSS si usas estilos personalizados
-├── /public                # Imágenes, íconos, logos estáticos
-├── /hooks                 # Hooks personalizados como useCart, useToggle
+/src <br>
+├── /app <br>
+│   ├── /home <br>
+│   │   └── page.jsx <br>
+│   ├── /productos <br>
+│   │   ├── page.jsx <br>
+│   ├── /carrito <br>
+│   │   └── page.jsx <br>
+│   ├── /checkout <br>
+│   │   └── page.jsx <br>
+│   ├── layout.jsx         # Layout principal (Navbar, Footer, etc) <br>
+│   └── globals.css        # Si estás usando Tailwind CSS <br>
+├── /components <br>
+│   ├── /common            # Navbar, Footer, Header, Loader, etc. <br>
+│   └── /ui                # Botones, cards, inputs reutilizables <br>
+├── /lib                   # Funciones o hooks personalizados (fetch, utils, etc.) <br>
+├── /styles                # Archivos CSS/SCSS si usas estilos personalizados <br>
+├── /public                # Imágenes, íconos, logos estáticos <br>
+├── /hooks                 # Hooks personalizados como useCart, useToggle <br>
 
 ---
 
