@@ -102,5 +102,3 @@ npm install
 # Ejecuta el servidor local
 npm run dev
 ```
-
-## hello 
