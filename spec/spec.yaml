@@ -1,0 +1,1416 @@
+openapi: 3.0.3
+info:
+  title: FantasyStore
+  version: 1.0.0
+  description: API Documentation
+paths:
+  /api/authentication/generate-code:
+    post:
+      operationId: authenticationGenerateCodeCreate
+      summary: Generar codigo de seguridad para el cambio de contraeña
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequestRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralMessage'
+          description: ''
+  /api/authentication/login/:
+    post:
+      operationId: authenticationLoginCreate
+      description: Iniciar Sesión
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPairRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPairRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPairRequest'
+        required: true
+      security:
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenOutput'
+          description: ''
+  /api/authentication/logout/:
+    post:
+      operationId: authenticationLogoutCreate
+      description: Cerrar sesión
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: Cierre de sesión exitoso
+        '401':
+          description: Usted no tiene permiso para ver este usuario
+  /api/authentication/recover-password-code:
+    post:
+      operationId: authenticationRecoverPasswordCodeCreate
+      description: restablecer la contraseña atraves de codigo de seguridad
+      summary: Restablecer la contraseña
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralMessage'
+          description: ''
+  /api/authentication/refresh/:
+    post:
+      operationId: authenticationRefreshCreate
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /api/authentication/update-password/:
+    post:
+      operationId: authenticationUpdatePasswordCreate
+      description: Actualizar contraseña
+      summary: Actualizar contraseña
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePasswordRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpdatePasswordRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpdatePasswordRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralMessage'
+          description: ''
+  /api/authentication/validate-code:
+    post:
+      operationId: authenticationValidateCodeCreate
+      tags:
+      - authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordCodeValidateRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordCodeValidateRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordCodeValidateRequestRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateCodeRequest'
+          description: ''
+  /api/main/carousel/carousel/:
+    get:
+      operationId: mainCarouselCarouselList
+      tags:
+      - Carousel
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CarouselItemResponse'
+          description: ''
+    post:
+      operationId: mainCarouselCarouselCreate
+      tags:
+      - Carousel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarouselItemRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CarouselItemRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CarouselItemRequestRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarouselItemRequest'
+          description: ''
+  /api/main/carousel/carousel/{id}/:
+    get:
+      operationId: mainCarouselCarouselRetrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this carousel item model.
+        required: true
+      tags:
+      - Carousel
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarouselItemResponse'
+          description: ''
+    put:
+      operationId: mainCarouselCarouselUpdate
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this carousel item model.
+        required: true
+      tags:
+      - Carousel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarouselItemRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CarouselItemRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CarouselItemRequestRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarouselItemRequest'
+          description: ''
+    patch:
+      operationId: mainCarouselCarouselPartialUpdate
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this carousel item model.
+        required: true
+      tags:
+      - Carousel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCarouselItemRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCarouselItemRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCarouselItemRequestRequest'
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarouselItemRequest'
+          description: ''
+    delete:
+      operationId: mainCarouselCarouselDestroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this carousel item model.
+        required: true
+      tags:
+      - Carousel
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/main/configurations/:
+    get:
+      operationId: mainConfigurationsList
+      tags:
+      - Settings
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Settings'
+          description: ''
+  /api/main/configurations/{id}/:
+    get:
+      operationId: mainConfigurationsRetrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Configuración.
+        required: true
+      tags:
+      - Settings
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Settings'
+          description: ''
+  /api/main/image/:
+    get:
+      operationId: mainImageList
+      tags:
+      - Images
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImageSerializerRequest'
+          description: ''
+    post:
+      operationId: mainImageCreate
+      tags:
+      - Images
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                type:
+                  type: integer
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSerializerRequest'
+          description: ''
+  /api/main/image-types/images/:
+    get:
+      operationId: mainImageTypesImagesList
+      tags:
+      - Image Type
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImageType'
+          description: ''
+    post:
+      operationId: mainImageTypesImagesCreate
+      tags:
+      - Image Type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ImageTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageTypeRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageType'
+          description: ''
+  /api/main/image-types/images/{id}/:
+    get:
+      operationId: mainImageTypesImagesRetrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image type model.
+        required: true
+      tags:
+      - Image Type
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageType'
+          description: ''
+    put:
+      operationId: mainImageTypesImagesUpdate
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image type model.
+        required: true
+      tags:
+      - Image Type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ImageTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageTypeRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageType'
+          description: ''
+    patch:
+      operationId: mainImageTypesImagesPartialUpdate
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image type model.
+        required: true
+      tags:
+      - Image Type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedImageTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedImageTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedImageTypeRequest'
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageType'
+          description: ''
+    delete:
+      operationId: mainImageTypesImagesDestroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image type model.
+        required: true
+      tags:
+      - Image Type
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/main/location/cities/:
+    get:
+      operationId: mainLocationCitiesList
+      tags:
+      - main
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/City'
+          description: ''
+  /api/main/location/cities/{id}/:
+    get:
+      operationId: mainLocationCitiesRetrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Municipios.
+        required: true
+      tags:
+      - main
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/City'
+          description: ''
+  /api/main/location/states/:
+    get:
+      operationId: mainLocationStatesList
+      tags:
+      - main
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/State'
+          description: ''
+  /api/main/location/states/{id}/:
+    get:
+      operationId: mainLocationStatesRetrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Departamento.
+        required: true
+      tags:
+      - main
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/State'
+          description: ''
+  /api/main/location/states/with_cities/:
+    get:
+      operationId: mainLocationStatesWithCitiesRetrieve
+      tags:
+      - main
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/State'
+          description: ''
+  /api/users/current/:
+    get:
+      operationId: usersCurrentRetrieve
+      description: Obtiene el Usuario Actual utilizando el token en el HEADER
+      summary: Obtiene el Usuario Actual utilizando el token en el HEADER
+      tags:
+      - Users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '401':
+          description: Usted no tiene permiso para ver este usuario
+  /api/users/deliveries/:
+    get:
+      operationId: usersDeliveriesList
+      tags:
+      - Users
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/register/:
+    post:
+      operationId: usersRegisterCreate
+      description: Registrar un nuevo Usuario
+      summary: Registrar un nuevo Usuario
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/upload-image-profile/{id}:
+    put:
+      operationId: usersUploadImageProfileUpdate
+      description: Cargar imagen del perfil
+      summary: Cargar imagen de perfil
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - Users
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '400':
+          description: Datos inválidos
+        '401':
+          description: No autorizado
+  /api/users/user/{username}/:
+    get:
+      operationId: usersUserRetrieve
+      description: Obtiene la información de un usuario mediante el nombre usuario
+      summary: Obtiene la información de un usuario mediante el nombre usuario
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+        required: true
+      tags:
+      - Users
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '404':
+          description: El Usuario no existe
+    post:
+      operationId: usersUserCreate
+      description: Actualizar un usario
+      summary: Actualizar un usuario
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+        required: true
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '404':
+          description: El Usuario no existe
+        '400':
+          description: Datos inválidos
+        '401':
+          description: Usted no tiene permiso para actualizar este usuario
+    delete:
+      operationId: usersUserDestroy
+      description: Elimina un usuario, solo el usuario se puede eliminar a si mismo
+      summary: Elimina un usuario, solo el usuario se puede eliminar a si mismo
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+        required: true
+      tags:
+      - Users
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          description: Eliminación exitosa del usuario
+        '404':
+          description: El Usuario no existe
+        '400':
+          description: Usted no tiene permiso para eliminar este usuario
+  /documentation/schema/:
+    get:
+      operationId: documentationSchemaRetrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - documentation
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+components:
+  schemas:
+    CarouselItemRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          title: Titulo
+          maxLength: 255
+        image:
+          type: integer
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - image
+      - title
+    CarouselItemRequestRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          title: Titulo
+          maxLength: 255
+        image:
+          type: integer
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - image
+      - title
+    CarouselItemResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          readOnly: true
+        title:
+          type: string
+          title: Titulo
+          maxLength: 255
+      required:
+      - title
+    City:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Nombre del Municipio
+          maxLength: 255
+      required:
+      - name
+    CustomTokenObtainPairRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          minLength: 1
+          title: Nombre de usuario
+        password:
+          type: string
+          minLength: 1
+          title: Contraseña
+      required:
+      - password
+      - username
+    GeneralMessage:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+      - message
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          readOnly: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ImageType'
+          readOnly: true
+    ImageSerializerRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          format: uri
+          title: Imagen
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ImageType'
+          readOnly: true
+      required:
+      - image
+    ImageType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Nombre de la imagen
+          maxLength: 255
+      required:
+      - name
+    ImageTypeRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          title: Nombre de la imagen
+          maxLength: 255
+      required:
+      - name
+    LogoutRequest:
+      type: object
+      properties:
+        refresh_token:
+          type: string
+          minLength: 1
+      required:
+      - refresh_token
+    PatchedCarouselItemRequestRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          title: Titulo
+          maxLength: 255
+        image:
+          type: integer
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+    PatchedImageTypeRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          title: Nombre de la imagen
+          maxLength: 255
+    RegisterRequest:
+      type: object
+      properties:
+        first_name:
+          type: string
+          title: Nombre
+          maxLength: 150
+        last_name:
+          type: string
+          title: Apellidos
+          maxLength: 150
+        phone:
+          type: string
+          nullable: true
+          minLength: 1
+          maxLength: 13
+        email:
+          type: string
+          format: email
+          minLength: 1
+          maxLength: 254
+        username:
+          type: string
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+          pattern: ^(?=.*[a-zA-Z]).{8,}$
+        rol:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - email
+      - password
+      - rol
+      - username
+    ResetPasswordCodeValidateRequestRequest:
+      type: object
+      properties:
+        code:
+          type: integer
+        email:
+          type: string
+          format: email
+          minLength: 1
+      required:
+      - code
+      - email
+    ResetPasswordRequest:
+      type: object
+      properties:
+        password:
+          type: string
+          minLength: 1
+        token:
+          type: string
+          minLength: 1
+      required:
+      - password
+      - token
+    ResetPasswordRequestRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          minLength: 1
+      required:
+      - email
+    Settings:
+      type: object
+      properties:
+        key:
+          type: string
+          maxLength: 200
+        value:
+          type: string
+          maxLength: 200
+      required:
+      - key
+      - value
+    State:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Nombre del Departamento
+          maxLength: 255
+      required:
+      - name
+    StatusDeliveryEnum:
+      enum:
+      - WK
+      - NWK
+      - AB
+      - BS
+      type: string
+      description: |-
+        * `WK` - Trabajando
+        * `NWK` - No trabajando
+        * `AB` - Disponible
+        * `BS` - Ocupado
+    StatusEnum:
+      enum:
+      - AC
+      - IN
+      - PR
+      - DN
+      - UP
+      type: string
+      description: |-
+        * `AC` - Activo
+        * `IN` - Inicio
+        * `PR` - En progreso
+        * `DN` - Denegado
+        * `UP` - Sin pago
+    TokenOutput:
+      type: object
+      properties:
+        refresh:
+          type: string
+          title: Refresh token
+        access:
+          type: string
+          title: Access token
+        user:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          title: User information
+      required:
+      - access
+      - refresh
+      - user
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+      required:
+      - refresh
+    TokenRefreshRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+          minLength: 1
+      required:
+      - refresh
+    UpdatePasswordRequest:
+      type: object
+      properties:
+        current_password:
+          type: string
+          minLength: 1
+        new_password:
+          type: string
+          minLength: 1
+      required:
+      - current_password
+      - new_password
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        avatar:
+          type: string
+          readOnly: true
+        rol:
+          type: string
+          readOnly: true
+        first_name:
+          type: string
+          title: Nombre
+          maxLength: 150
+        last_name:
+          type: string
+          title: Apellidos
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        username:
+          type: string
+        phone:
+          type: string
+          nullable: true
+          maxLength: 13
+        status:
+          allOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          title: Estado
+        status_delivery:
+          allOf:
+          - $ref: '#/components/schemas/StatusDeliveryEnum'
+          title: Estado
+        full_name:
+          type: string
+          readOnly: true
+        identification:
+          type: string
+          maxLength: 30
+        rates:
+          type: number
+          format: double
+      required:
+      - email
+      - username
+    UserUpdateRequest:
+      type: object
+      properties:
+        first_name:
+          type: string
+          title: Nombre
+          maxLength: 150
+        last_name:
+          type: string
+          title: Apellidos
+          maxLength: 150
+        identification:
+          type: string
+          maxLength: 30
+        email:
+          type: string
+          format: email
+          minLength: 1
+          maxLength: 254
+        phone:
+          type: string
+          nullable: true
+          minLength: 1
+          maxLength: 13
+      required:
+      - email
+    ValidateCodeRequest:
+      type: object
+      properties:
+        token:
+          type: string
+      required:
+      - token
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+servers:
+- url: http://localhost:8000

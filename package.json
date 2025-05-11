@@ -6,12 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models"
   },
   "dependencies": {
+    "axios": "^1.9.0",
+    "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.1"
+    "react-toastify": "^11.0.5",
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
