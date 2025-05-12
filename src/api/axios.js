@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-const apiUrl = process.env.API_HOST || "http://localhost:8000";
+const apiUrl = process.env.API_HOST || "http://192.168.1.12:8000";
 
 
 
