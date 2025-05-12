@@ -5,8 +5,18 @@ import './globals.css';
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <head />
+    <html lang='es' suppressHydrationWarning>
+      <head>
+        <title>Fantasía Store</title>
+        <meta name="description" content="Tienda de ropa y accersorios"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#F7E9E9" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"></link>
+        
+        <link rel="icon" href="/favicon-clothe.png"/>
+      </head>
+
       <body>
         <div className='min-h-screen flex flex-col'>
           {/* Header */}
