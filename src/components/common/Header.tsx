@@ -38,8 +38,8 @@ export default function Header() {
                     <Link className="ml-7" href="/about">About</Link>
                     <Link className="ml-7" href="/contact">Contact</Link>
                     <div className="flex gap-4 ml-10 mr-10">
-                        <Image src="/icon/facebook.svg" alt="Facebook" width={20} height={20} />
-                        <Image src="/icon/instagram.svg" alt="Instagram" width={20} height={20} />
+                        <Image src="/facebook.svg" alt="Facebook" width={20} height={20} />
+                        <Image src="/instagram.svg" alt="Instagram" width={20} height={20} />
                     </div>
                 </div>
                 <div className="flex lg:hidden">
@@ -57,8 +57,8 @@ export default function Header() {
                     <Link className="mt-4" href="/about" onClick={() => setMenuOpen(false)}>About</Link>
                     <Link className="mt-4" href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
                     <div className="flex gap-4 mt-4">
-                        <Image src="/icon/facebook.svg" alt="Facebook" width={20} height={20} />
-                        <Image src="/icon/instagram.svg" alt="Instagram" width={20} height={20} />
+                        <Image src="/facebook.svg" alt="Facebook" width={20} height={20} />
+                        <Image src="/instagram.svg" alt="Instagram" width={20} height={20} />
                     </div>
                 </div>
             )}
