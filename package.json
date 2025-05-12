@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models",
+    "build": "npm run gen-api && next build",
     "start": "next start",
-    "lint": "next lint",
-    "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models"
+    "lint": "next lint"  
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
