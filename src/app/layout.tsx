@@ -1,7 +1,9 @@
 import React from 'react';
+import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import './globals.css';
-export default function RootLayout({ children}:Readonly<{ children: React.ReactNode }>) {
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='es' suppressHydrationWarning>
       <head>
@@ -17,6 +19,9 @@ export default function RootLayout({ children}:Readonly<{ children: React.ReactN
 
       <body>
         <div className='min-h-screen flex flex-col'>
+          {/* Header */}
+          <Header />
+
           {/* Contenido Principal */}
           <main className='flex-grow'>{children}</main>
 
