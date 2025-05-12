@@ -5,14 +5,12 @@ export default function RootLayout({ children}:Readonly<{ children: React.ReactN
   return (
     <html lang='es' suppressHydrationWarning>
       <head>
-        <title>Fantasía Store</title>
+        <title>Fantasy Store</title>
         <meta name="description" content="Tienda de ropa y accersorios"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#F7E9E9" />
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"></link>
-        
-        <link rel="icon" href="/favicon-clothe.png"/>
+        <link rel="icon" href="/icon/favicon-clothe.png" />
       </head>
 
       <body>

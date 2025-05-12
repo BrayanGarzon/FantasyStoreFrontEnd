@@ -7,37 +7,25 @@
   --color-primary: #FEFEFE;
   --color-secondary: #F7E9E9;
   --text-color: #454545;
-  --text-color-secondary: #6C6C6C;
   --font-family: 'Poppins', sans-serif;
 }
 
 @theme inline{
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
-  --text-color: var(--text-color);
-  --text-color-secondary: var(--text-color-secondary);
 
 }
 
-.text-primary {
-  color: var(--text-color);
-}
-.text-secondary {
-  color: var(--text-color-secondary);
-}
+
 
 body {
-  margin: 0;
-  padding: 0;
   font-family: var(--font-family);
   background-color: var(--color-primary);
   color: var(--text-color);
 }
 
 
-.custom-icon {
-  font-size: 10px; /* Ajusta el tamaño según lo necesites */
-}
+
 
 /* 
 @media (prefers-color-scheme: dark) {
