@@ -10,6 +10,8 @@ export default function Header() {
 
     const { banners, loading } = useBanners();
 
+    console.log(banners)
+
     return (
         <header className="bg-gray-800 h-[500px] text-white p-4">
             <nav className='flex justify-between items-center'>
@@ -33,6 +35,11 @@ export default function Header() {
                     </div>
                 </div>
             </nav>
+            { loading ? (<p>loadding</p>) : banners.map((item, index) => (
+                <div className='relative w-full h-full' key={index}>
+                    <Image src={item.image?.image!} alt={`Banner ${index}`}  width={100} height={100}/>
+                </div>
+            )) }
         </header>
     );
 }
