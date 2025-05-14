@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
@@ -7,35 +8,35 @@ import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-sv
 const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary py-10">
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 px-4">
         
         {/* Sección 1: Logo y Descripción */}
-        <div>
-          <h3 className="text-3xl font-bold text-primary">Fantasía Store</h3>
+        <div className='lg:col-span-2 text-center lg:text-left'>
+          <h3 className="text-3xl sm:text-4xl font-bold text-primary">Fantasía Store</h3>
           <p className="mt-2 text-sm">
-            Pariatur Lorem dolor non culpa sint cillum dolore ipsum est. Reprehenderit adipisicing irure nostrud nostrud et et in occaecat consectetur. Labore sit magna tempor in duis cillum sunt. Tempor deserunt excepteur qui nulla incididunt nostrud fugiat tempor aliqua esse magna. Consectetur duis exercitation eu et exercitation nostrud ipsum.
+            En Fantasía store, ofrecemos lencería femenina pensada para adaptarse a tu ritmo de vida, con diseños que combinan elegancia, comodidad y un ajuste perfecto a la sensualidad. Cada prenda está seleccionada para brindarte seguridad, estilo y una sensación única de bienestar.
+            Encuentra desde los básicos que necesitas hasta los diseños más sofisticados para ocasiones especiales. Calidad, diseño y buen gusto, todo en un solo lugar.
           </p>
         </div>
         
         {/* Sección 2: Redes Sociales */}
-        <div>
+        <div className='text-center lg:text-left'>
           <h4 className="text-lg font-semibold text-primary">Síguenos</h4>
-          <ul className="mt-4 gap-2 display flex flex-row">
-            <li>
-              <a href="https://www.facebook.com/share/1H2iKKDCHF/" className="hover:text-white w-20 h-20" target='_blank'>
-                
-                <FontAwesomeIcon icon={faFacebook} width={40} height={40} />
-              </a>
+          <ul className="mt-4 gap-2 display flex flex-row justify-center lg:justify-start">
+            <li className=''>
+              <Link href="https://www.facebook.com/share/1H2iKKDCHF/" className="hover-color-facebook w-20 h-20" target='_blank'>
+                <FontAwesomeIcon icon={faFacebook} width={30} height={30} />
+              </Link>
             </li>
             <li>
-              <a href="https://www.instagram.com/store_fantasia?igsh=MTJ4aW1tZmx2eW9jcA==" className="hover:text-white" target='_blank'>
-                <FontAwesomeIcon icon={faInstagram} width={40} height={40} />
-              </a>
+              <Link href="https://www.instagram.com/store_fantasia?igsh=MTJ4aW1tZmx2eW9jcA==" className="hover-color-instagram" target='_blank'>
+                <FontAwesomeIcon icon={faInstagram} width={30} height={30} />
+              </Link>
             </li>
             <li>
-              <a href="http://wa.me/+573125769121" className="hover:text-white" target='_blank'>
-                <FontAwesomeIcon icon={faWhatsapp} width={40} height={40} />
-              </a>
+              <Link href="http://wa.me/+573125769121" className="hover-color-whatsapp" target='_blank'>
+                <FontAwesomeIcon icon={faWhatsapp} width={30} height={30} />
+              </Link>
             </li>
           </ul>
         </div>
@@ -44,9 +45,9 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold text-primary">Políticas de privacidad</h4>
           <ul className="mt-4  space-x-4">
-            <li><a href="#" className="hover:text-primary">Facebook</a></li>
-            <li><a href="#" className="hover:text-primary">Twitter</a></li>
-            <li><a href="#" className="hover:text-primary">Instagram</a></li>
+            <li><Link href="pages/mision" className="hover:text-primary">Mision</Link></li>
+            <li><Link href="pages/vision" className="hover:text-primary">Visión</Link></li>
+            <li><Link href="pages/conditions" className="hover:text-primary">Politica de compra y consumo</Link></li>
           </ul>
         </div>
 
