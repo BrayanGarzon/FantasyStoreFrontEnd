@@ -1,7 +1,7 @@
 // store/authStore.ts
 import { create } from "zustand";
 import { User } from '../api-client/models';
-import { authenticateApi } from '../api/index'
+// import { authenticateApi } from '../api/index'
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -15,7 +15,7 @@ interface AuthState {
   initializeFromStorage: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set, get) => ({
+export const useAuthStore = create<AuthState>((set:any, get:any) => ({
   isAuthenticated: false,
   accessToken: null,
   refreshToken: null,
