@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models",
+    "build": "npm run gen-api && next build",
     "start": "next start",
-    "lint": "next lint",
-    "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models"
+    "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -29,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
