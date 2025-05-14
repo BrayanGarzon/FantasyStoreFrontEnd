@@ -1,0 +1,44 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main  # o la rama que uses para producción
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install OpenAPI Generator CLI
+        run: npx @openapitools/openapi-generator-cli version-manager set 7.4.0  # o la versión que uses
+
+      - name: Generate API Client
+        run: |
+          npx @openapitools/openapi-generator-cli generate \
+            -i ./spec/spec.yaml \
+            -g typescript-axios \
+            -o src/api-client \
+            --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          prod: true
