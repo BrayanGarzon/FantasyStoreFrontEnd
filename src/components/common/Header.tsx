@@ -67,6 +67,7 @@ export default function Header() {
             {loading ? (
                 <p className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Loading...</p>
             ) : ( banners != null && banners.length > 0 &&
+            ) : ( banners != null && banners.length > 0 &&
                 <Slider {...sliderSettings}>
                     {banners.map((banner, index) => {
                         const words:string[]  = banner.title.split(' ').slice(0, 5);
