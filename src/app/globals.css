@@ -1,6 +1,8 @@
 /*Primero las fuentes*/
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*Paquetes necesarios*/
 @import 'tailwindcss';
 
@@ -12,6 +14,7 @@
   --text-color: #454545;
   --text-color-secondary: #6C6C6C;
   --font-family: "Cormorant Upright", serif;
+  --font-family-secondary: "Roboto", sans-serif;
 
   --color-icon-facebook: #1877F2;
   --color-icon-instagram: #E4405F;
@@ -29,28 +32,8 @@
   --instagram-hover-color: var(--color-icon-instagram);
   --whatsapp-hover-color: var(--color-icon-whatsapp);
 }
-/*Generar una clase con la finalidad de llamarla y hacer efecto hover*/
-.hover-color-facebook:hover {
-  color: var(--facebook-hover-color);
-  transition: all 0.3s ease-in-out;
-}
-.hover-color-instagram:hover {
-  color: var(--instagram-hover-color);
-  transition: all 0.3s ease-in-out;
-}
-.hover-color-whatsapp:hover {
-  color: var(--whatsapp-hover-color);
-  transition: all 0.3s ease-in-out;
-}
 
 
-
-.text-primary {
-  color: var(--text-color);
-}
-.text-secondary {
-  color: var(--text-color-secondary);
-}
 
 body {
   margin: 0;
@@ -59,6 +42,8 @@ body {
   background-color: var(--color-primary);
   color: var(--text-color);
 }
+
+
 
 
 .custom-icon {
