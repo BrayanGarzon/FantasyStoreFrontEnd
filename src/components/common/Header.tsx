@@ -69,7 +69,7 @@ export default function Header() {
             ) : ( banners != null && banners.length > 0 &&
                 <Slider {...sliderSettings}>
                     {banners.map((banner, index) => {
-                        const words:String[]  = banner.title.split(' ').slice(0, 5);
+                        const words:string[]  = banner.title.split(' ').slice(0, 5);
 
                         return (
                             <div key={index}>
