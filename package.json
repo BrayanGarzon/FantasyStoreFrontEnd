@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models",
-    "build": "npm run gen-api && next build || true",
+    "build": "npm i && npm run gen-api && next build || true",
     "start": "next start",
     "lint": "next lint"
   },
