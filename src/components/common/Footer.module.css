@@ -25,3 +25,17 @@
 .text-secondary-font-family {
   font-family: var(--font-family-secondary);
 }
+.textHoverColor{
+  transition: all 0.3s ease-in-out;
+}
+.textHoverColor:hover{
+  color: var(--text-color-hover);
+}
+
+
+
+/*Tamaño de los iconos de redes sociales*/
+.socialIcon {
+  font-size: 2.2rem; /* Cambia aquí el tamaño global de los íconos */
+  transition: color 0.3s;
+}
