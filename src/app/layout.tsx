@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   useEffect(() => {
     const checkServer = async () => {
       try {
-        await mainApi.mainPingRetrieve(); // Cambia esto por tu endpoint de prueba
+        await mainApi.mainPingRetrieve();
         setIsServerReady(true);
       } catch (error) {
         console.log('Servidor no disponible, reintentando en 3s...');
