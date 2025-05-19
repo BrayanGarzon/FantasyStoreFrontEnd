@@ -20,6 +20,7 @@
   --color-icon-facebook: #1877F2;
   --color-icon-instagram: #E4405F;
   --color-icon-whatsapp: #25D366;
+  --color-icon-whatsapp-hover: #128C7E;
 }
 
 @theme inline{
@@ -32,7 +33,6 @@
 
   --facebook-hover-color: var(--color-icon-facebook);
   --instagram-hover-color: var(--color-icon-instagram);
-  --whatsapp-hover-color: var(--color-icon-whatsapp);
 }
 
 
