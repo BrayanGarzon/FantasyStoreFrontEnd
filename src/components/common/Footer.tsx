@@ -41,8 +41,8 @@ const Footer = () => {
         </div>
         
         {/* Sección 3: Políticas */}
-        <div>
-          <h4 className="text-lg font-semibold text-primary-color">Políticas de privacidad</h4>
+        <div className='text-center sm:text-left'>
+          <h4 className="text-2xl font-semibold text-primary-color">Políticas de privacidad</h4>
           <ul className="mt-4 space-x-4">
             <li><Link href="/mision" className={styles.textHoverColor}>Misión</Link></li>
             <li><Link href="/vision" className={styles.textHoverColor}>Visión</Link></li>
@@ -50,9 +50,9 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Sección 4: Newsletter */}
-        <div>
-          <h4 className="text-lg font-semibold text-primary-color">Suscríbete</h4>
+        {/* Sección 4: Newsletter */} 
+        <div className='text-center sm:text-left'>
+          <h4 className="text-2xl font-semibold text-primary-color">Suscríbete</h4>
           <p className="mt-2 text-sm">
             Recibe las últimas ofertas y noticias.
           </p>

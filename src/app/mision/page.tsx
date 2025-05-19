@@ -1,3 +1,4 @@
+import ButtonAtras from '@/components/ui/buttonAtras';
 import './mision.module.css';
 
 export default function Mision(){
@@ -10,6 +11,8 @@ export default function Mision(){
             <p className={"text-secondary-font-family text-base sm:text-lg lg:text-xl max-w-3xl text-justify text-secondary-color"}>
                 En Fantasía Store, queremos resaltar la sensualidad natural de cada mujer a través de nuestras prendas que inspiran seguridad, confianza y comodidad, resaltando el cuerpo femenino en todas sus formas; queremos que cada mujer que vista nuestra lencería se sienta empoderada, auténtica y completamente conectada con su feminidad.
             </p>
+            
+            <ButtonAtras/>
         </div>
     );
 }
