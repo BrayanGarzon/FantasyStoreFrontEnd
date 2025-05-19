@@ -1,4 +1,5 @@
 import './politicas.module.css';
+import ButtonAtras from '@/components/ui/buttonAtras';
 
 export default function Politicas(){
     return(
@@ -32,6 +33,7 @@ export default function Politicas(){
                 <li>No compartimos ni vendemos tus datos a terceros.</li>
                 <li>Utilizamos tus datos exclusivamente para procesar tus pedidos y ofrecer una mejor experiencia de compra.</li>
             </ul>
+            <ButtonAtras/>
         </div>
     );
 }
