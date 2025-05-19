@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "gen-api": "npx @openapitools/openapi-generator-cli generate -i ./spec/spec.yaml -g typescript-axios -o src/api-client --additional-properties withSeparateModelsAndApi=true,useSingleRequestParameter=true,apiPackage=api,modelPackage=models",
-    "build": "npm run gen-api && next build || true",
+    "build": "npm i && npm run gen-api && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@openapitools/openapi-generator-cli": "^2.20.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

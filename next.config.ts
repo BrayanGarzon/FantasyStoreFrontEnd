@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         port: '8000',
         pathname: '/media/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'fantasystorebackend-79vb.onrender.com',
+        port: '',
+        pathname: '/media/**',
+      }
     ],
   },
   eslint: {
