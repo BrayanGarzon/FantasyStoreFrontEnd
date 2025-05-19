@@ -13,7 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   useEffect(() => {
     const checkServer = async () => {
       try {
-        await mainApi.('/ping'); // Cambia esto por tu endpoint de prueba
+        await mainApi.mainPingRetrieve(); // Cambia esto por tu endpoint de prueba
         setIsServerReady(true);
       } catch (error) {
         console.log('Servidor no disponible, reintentando en 3s...');
@@ -36,11 +36,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         {!isServerReady && (
-          <div className="fixed inset-0 z-50 bg-white/80 backdrop-blur-md flex items-center justify-center">
-            <div className="text-center">
-              <div className="loader mb-4"></div>
-              <p className="text-xl font-medium">Cargando servidor...</p>
+          <div className="fixed inset-0 z-50 bg-white/80 backdrop-blur-md flex items-center justify-center flex-col">
+            <div className="text-center mb-4">
+              <p className="text-xl font-medium">Encendiendo Servidor</p>
             </div>
+              <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-black-400 border-t-transparent"></div>
           </div>
         )}
         <div className='min-h-screen flex flex-col'>

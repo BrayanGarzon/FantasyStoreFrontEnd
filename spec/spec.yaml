@@ -663,6 +663,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/State'
           description: ''
+  /api/main/ping/:
+    get:
+      operationId: mainPingRetrieve
+      tags:
+      - main
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
   /api/users/current/:
     get:
       operationId: usersCurrentRetrieve
@@ -1414,3 +1425,4 @@ components:
       bearerFormat: JWT
 servers:
 - url: http://localhost:8000
+- url: https://fantasystorebackend-79vb.onrender.com
