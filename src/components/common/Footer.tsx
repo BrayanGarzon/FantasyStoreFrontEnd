@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import styles from'./Footer.module.css';
 
+// servicio de correos
+import { useForm, ValidationError } from '@formspree/react';
+
 const Footer = () => {
   return (
     <footer className="bg-secondary py-5 text-secondary-color">
@@ -51,7 +54,7 @@ const Footer = () => {
         </div>
 
         {/* Sección 4: Newsletter */} 
-        <div className='text-center sm:text-left'>
+        {/* <div className='text-center sm:text-left'>
           <h4 className="text-2xl font-semibold text-primary-color">Suscríbete</h4>
           <p className="mt-2 text-sm">
             Recibe las últimas ofertas y noticias.
@@ -66,7 +69,19 @@ const Footer = () => {
               Suscribirse
             </button>
           </form>
+        </div> */}
+
+        {/* Sección 4: Newsletter */}
+        <div className='text-center sm:text-left'>
+          <h4 className="text-2xl font-semibold text-primary-color">Suscríbete</h4>
+          <p className="mt-2 text-sm">
+            Recibe las últimas ofertas y noticias.
+          </p>
+
+          {/* Formspree form */}
+          <NewsletterForm />
         </div>
+
       </div>
       
       {/* Derechos reservados */}
@@ -76,5 +91,39 @@ const Footer = () => {
     </footer>
   );
 };
+
+
+const NewsletterForm = () => {
+  const [state, handleSubmit] = useForm("xdkgjloz");
+
+  if (state.succeeded) {
+    return <p className="mt-4 text-green-500 font-semibold">¡Gracias por suscribirte!</p>;
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-4">
+      <input 
+        type="email" 
+        name="email"
+        placeholder="Tu correo electrónico" 
+        required
+        className="w-full p-2 rounded-lg bg-gray-800 text-gray-300 mb-4"
+      />
+      <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
+      <button 
+        type="submit"
+        disabled={state.submitting}
+        className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+      >
+        Suscribirse
+      </button>
+    </form>
+  );
+};
+
 
 export default Footer;
