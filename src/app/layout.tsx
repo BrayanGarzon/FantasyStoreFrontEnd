@@ -8,20 +8,29 @@ import './globals.css';
 
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import WhatsAppFloat from '@/components/common/whatsAppFloat';
 
 import { mainApi } from '../api';
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
 
-  // Rutas donde NO quieres mostrar Header/Footer
+  // Rutas donde NO queremos mostrar Header/Footer
   const hideHeaderFooter = [
     '/mision',
     '/vision',
     '/politicas'
   ];
 
-  const shouldHide = hideHeaderFooter.includes(pathname);
+  // Rutas donde no quieremos mostrar al WhatsApp
+  const hideWhatsApp = [
+    '/mision',
+    '/vision',
+    '/politicas'
+  ];
+
+  const shouldHideHeaderFooter = hideHeaderFooter.includes(pathname);
+  const shouldHideWhatsApp = hideWhatsApp.includes(pathname);
 
   const [isServerReady, setIsServerReady] = useState(false);
 
@@ -43,19 +52,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang='es' suppressHydrationWarning>
       <head>
         <title>Fantasía Store</title>
-        <meta name="description" content="Tienda de ropa y accesorios" />
+        <meta name="description" content="Tienda de ropa y accesorios"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#F7E9E9" />
-        
-        
         <link rel="icon" href="/Store_Favicon.png" sizes="32x32" type="image/png" />
         <link rel="icon" href="/Store_Favicon.png" sizes="64x64" type="image/png" />
         <link rel="icon" href="/Store_Favicon.png" sizes="128x128" type="image/png" />
-
-
-
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-        <link rel="icon" href="/favicon-clothe.png" />
       </head>
       <body>
         {!isServerReady && (
@@ -66,17 +68,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-black-400 border-t-transparent"></div>
           </div>
         )}
+        {/*Contenido principal*/}
         <div className='min-h-screen flex flex-col'>
-          {/* Header */}
-          {!shouldHide && <Header />}
-
-          {/* Contenido Principal */}
+          {!shouldHideHeaderFooter && <Header />}
           <main className='flex-grow'>{children}</main>
-
-          {/* Footer */}
-          {!shouldHide && <Footer />}
+          {!shouldHideHeaderFooter && <Footer />}
         </div>
+
+        {/* Botón de WhatsApp - Fuera del contenedor flexible */}
+        {!shouldHideWhatsApp && <WhatsAppFloat/>}
       </body>
+
     </html>
   );
 }
