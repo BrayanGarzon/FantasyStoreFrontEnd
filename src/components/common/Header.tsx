@@ -32,6 +32,10 @@ export default function Header() {
         pauseOnFocus: true,
     }), []);
 
+
+    function handleClickSliderAction() {
+    }
+
     return (
         <header className="relative h-[250px] lg:h-[500px] w-full overflow-hidden text-white">
             {/* Nav */}
@@ -39,7 +43,7 @@ export default function Header() {
                 <h2 className="text-4xl">Fantasy Store</h2>
                 <div className="hidden lg:flex">
                     <Link className={`${styles.textHoverColor}`} href="/">Home</Link>
-                    <Link className={`ml-7 ${styles.textHoverColor}`}  href="/shop">Shop</Link>
+                    <Link className={`ml-7 ${styles.textHoverColor}`} href="/shop">Shop</Link>
                     <Link className={`ml-7 ${styles.textHoverColor}`} href="/about">About</Link>
                     <Link className={`ml-7 ${styles.textHoverColor}`} href="/contact">Contact</Link>
                     <div className={`flex gap-4 ml-10 mr-10 ${styles.textHoverColor}`}>
@@ -61,7 +65,7 @@ export default function Header() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className={`absolute top-0 left-0 bottom-0 w-full bg-black text-white flex flex-col items-center p-4 z-20 transition-all duration-500 ease-in-out
-    ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                     <Link className={styles.textHoverColor} href="/">Home</Link>
                     <Link className={`mt-4 ${styles.textHoverColor}`} href="/shop" onClick={() => setMenuOpen(false)}>Shop</Link>
                     <Link className={`mt-4 ${styles.textHoverColor}`} href="/about" onClick={() => setMenuOpen(false)}>About</Link>
@@ -96,9 +100,16 @@ export default function Header() {
                                         className="object-cover"
                                         priority={index === 0}
                                     />
-                                    <p className=' text-3xl absolute text-white top-1/3 right-10 lg:text-6xl'>{words.map((word, i) => (
-                                        <p key={i}>{word}</p>
-                                    ))}</p>
+                                    <div className='absolute text-white top-1/3 right-10 flex flex-col items-end'>
+                                        <div className="text-3xl lg:text-6xl">
+                                            {words.map((word, i) => (
+                                                <p key={i}>{word}</p>
+                                            ))}
+                                        </div>
+                                        <button onClick={ handleClickSliderAction } className="mt-6 px-6 py-1 bg-transparent border border-white hover:bg-white hover:text-black rounded text-white text-lg cursor-pointer transition">
+                                            Ir a
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         )
