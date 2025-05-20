@@ -1,5 +1,10 @@
-@import 'tailwindcss';
+/*Primero las fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Paquetes necesarios*/
+@import 'tailwindcss';
 
 
 
@@ -8,7 +13,13 @@
   --color-secondary: #F7E9E9;
   --text-color: #454545;
   --text-color-secondary: #6C6C6C;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: "Cormorant Upright", serif;
+  --font-family-secondary: "Roboto", sans-serif;
+  --text-color-hover: #842525;
+
+  --color-icon-facebook: #1877F2;
+  --color-icon-instagram: #E4405F;
+  --color-icon-whatsapp: #25D366;
 }
 
 @theme inline{
@@ -16,15 +27,15 @@
   --color-secondary: var(--color-secondary);
   --text-color: var(--text-color);
   --text-color-secondary: var(--text-color-secondary);
+  --text-color-hover: var(--text-color-hover);
 
+
+  --facebook-hover-color: var(--color-icon-facebook);
+  --instagram-hover-color: var(--color-icon-instagram);
+  --whatsapp-hover-color: var(--color-icon-whatsapp);
 }
 
-.text-primary {
-  color: var(--text-color);
-}
-.text-secondary {
-  color: var(--text-color-secondary);
-}
+
 
 body {
   margin: 0;
@@ -35,9 +46,14 @@ body {
 }
 
 
+
+
 .custom-icon {
   font-size: 10px; /* Ajusta el tamaño según lo necesites */
 }
+
+
+
 
 
 /* 

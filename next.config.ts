@@ -6,10 +6,22 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: '192.168.1.12',
+        hostname: '127.0.0.1',
         port: '8000',
         pathname: '/media/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'fantasystorebackend-79vb.onrender.com',
+        port: '',
+        pathname: '/media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fantasy-store.s3.amazonaws.com',
+        port: '',
+        pathname: '/media/**',
+      }
     ],
   },
   eslint: {

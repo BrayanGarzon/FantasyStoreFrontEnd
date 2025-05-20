@@ -1,0 +1,8 @@
+.text-secondary-color {
+  color: var(--text-color-secondary);
+}
+
+
+.text-secondary-font-family {
+    font-family: var(--font-family-secondary);
+}
