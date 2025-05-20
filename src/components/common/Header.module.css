@@ -1,0 +1,22 @@
+/*Generar una clase con la finalidad de llamarla y hacer efecto hover*/
+.hover-color-facebook:hover {
+  color: var(--facebook-hover-color);
+  transition: all 0.3s ease-in-out;
+}
+.hover-color-instagram:hover {
+  color: var(--instagram-hover-color);
+  transition: all 0.3s ease-in-out;
+}
+
+/*Tamaño de los iconos de redes sociales*/
+.socialIcon {
+  font-size: 1.5rem; /* Cambia aquí el tamaño global de los íconos */
+  transition: color 0.3s;
+}
+
+.textHoverColor{
+  transition: all 0.3s ease-in-out;
+}
+.textHoverColor:hover{
+  color: var(--color-secondary);
+}

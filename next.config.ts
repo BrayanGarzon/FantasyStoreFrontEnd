@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         hostname: 'fantasystorebackend-79vb.onrender.com',
         port: '',
         pathname: '/media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fantasy-store.s3.amazonaws.com',
+        port: '',
+        pathname: '/media/**',
       }
     ],
   },
